@@ -45,7 +45,7 @@ char **get_commands(char *line)
 		}
 		j++;
 	}
-	command = malloc(sizeof(char *) * (word_count) + 1);
+	command = malloc(sizeof(char *) * (word_count) + 2);
 	if (!command)
 	{
 		return (NULL);
