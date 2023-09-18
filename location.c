@@ -1,3 +1,4 @@
+#include "shell.h"
 /**
  * *get_loc - finds the location of an executable
  * file in the PATH
@@ -6,7 +7,6 @@
  * Return: a pointer to the full path of the file,
  * or NULL if not found or error
  */
-#include "shell.h"
 
 char *get_loc(char *path, char *argument)
 {

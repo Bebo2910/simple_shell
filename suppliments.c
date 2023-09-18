@@ -1,5 +1,10 @@
 #include "shell.h"
-
+/**
+ * *print_prompt - prints a prompt and reads a line 
+ * from standard input
+ * Return: a pointer to the line read,
+ * or NULL on error
+ */
 char *print_prompt(void)
 {
 	char *prompt = ":) ", *get_the_line = NULL;
@@ -25,7 +30,13 @@ char *print_prompt(void)
 
 	return (get_the_line);
 }
-
+/**
+ * get_commands - splits a line into words
+ * separated by delimiters
+ * @line: a pointer to the line to split
+ * Return: a pointer to an array of words
+ * or NULL on error
+ */
 char **get_commands(char *line)
 {
 	int i = 0, word_count = 0, j = 0;
@@ -60,7 +71,13 @@ char **get_commands(char *line)
 
 	return (command);
 }
-
+/**
+ * *get_path - returns the path of a command
+ * @command: a pointer to an array of words
+ * that represent the command
+ * Return: a pointer to the path of the command
+ * or NULL on error
+ */
 char *get_path(char **command)
 {
 	char *path, *dels = "/\n";

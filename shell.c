@@ -1,3 +1,4 @@
+#include "shell.h"
 /**
  * main - a simple shell program
  * @argc: the number of arguments
@@ -8,7 +9,6 @@
  * and executes it in child process and repeat it until user types exit
  * Return:0 on success, or exit status of the child process if fails
  */
-#include "shell.h"
 
 int main(int argc, char **argv, char **envp)
 {

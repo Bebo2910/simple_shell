@@ -1,3 +1,4 @@
+#include "shell.h"
 /**
  * check_commands - checks if the input is a built-in command
  * @src: pointer to an array of strings
@@ -6,7 +7,6 @@
  * "exit" and "env", and executes the corresponding actions if they match.
  * Return: 0 if successful or -1 if src is NULL
  */
-#include "shell.h"
 
 int check_commands(char **src, char **envp)
 {
