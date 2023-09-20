@@ -25,13 +25,11 @@ int main(int argc, char **argv, char **envp)
 		check_commands(command, envp);
 		path = get_path(command);
 		child_pro = fork();
-
 		if (child_pro == -1)
 		{
 			perror(argv[0]);
 			exit(EXIT_FAILURE);
 		}
-
 		if (child_pro == 0)
 		{
 			if (execve(path, command, envp) == -1)
@@ -40,6 +38,7 @@ int main(int argc, char **argv, char **envp)
 				_puts(":");
 				_puts(" No such file or directory");
 				_putchar('\n');
+				free(path), free(command);
 				exit(EXIT_FAILURE);
 			}
 		}
@@ -47,6 +46,7 @@ int main(int argc, char **argv, char **envp)
 		{
 			wait(&status);
 		}
+		free(path), free(command);
 	}
 	return (0);
 }
