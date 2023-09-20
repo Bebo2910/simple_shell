@@ -10,6 +10,10 @@ char *print_prompt(void)
 	char *get_the_line = NULL;
 	size_t num;
 
+	if (isatty(STDIN_FILENO))
+	{
+		_puts(":) ");
+	}
 	getline(&get_the_line, &num, stdin);
 	if (!get_the_line)
 	{
