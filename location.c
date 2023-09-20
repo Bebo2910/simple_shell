@@ -1,7 +1,6 @@
 #include "shell.h"
 /**
- * *get_loc - finds the location of an executable
- * file in the PATH
+ * get_loc - finds the location of an executable
  * @path: the value of the PATH environment variable
  * @argument: the name of the executable file
  * Return: a pointer to the full path of the file,
@@ -11,7 +10,7 @@
 char *get_loc(char *path, char *argument)
 {
 	char *token, *file, *fileCopy = strdup(path);
-	char *dels = ":", *buffer;
+	char *dels = ":";
 
 	token = strtok(fileCopy, dels);
 
@@ -34,7 +33,7 @@ char *get_loc(char *path, char *argument)
 	return (NULL);
 }
 /**
- * *expo_loc - finds the executable location of a command
+ * expo_loc - finds the executable location of a command
  * @argument: the command to search for
  * Return: the full path of the executable, or NULL if not found
  */

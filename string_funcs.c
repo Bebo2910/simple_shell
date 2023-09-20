@@ -18,8 +18,8 @@ int _strlen(char *s)
 }
 /**
  * _strcmp - compare two strings
- * @s1:pointer to first string
- * @s2:pointer to second string
+ * @s1: pointer to first string
+ * @s2: pointer to second string
  * Description: this function compares characters 
  * of two strings
  * Return: the difference between the first mismatching
@@ -28,8 +28,6 @@ int _strlen(char *s)
 
 int _strcmp(char *s1, char *s2)
 {
-	int i = 0;
-
 	while(*s1 == *s2)
 	{
 		if (*s1 == '\0')
