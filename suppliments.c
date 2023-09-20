@@ -40,19 +40,7 @@ char **get_commands(char *line)
 		return (NULL);
 	}
 
-	while (line[j] != '\0')
-	{
-		if (line[j] == dels[0])
-		{
-			word_count++;
-		}
-		j++;
-	}
-	command = malloc(sizeof(char *) * word_count);
-	if(!command)
-	{
-		return (NULL);
-	}
+	command = malloc(sizeof(char *) * 1024);
 	command[0] = strtok(line, dels);
 	if (command[0] == NULL)
 	{

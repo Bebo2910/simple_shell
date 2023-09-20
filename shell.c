@@ -13,7 +13,6 @@
 int main(int argc, char **argv, char **envp)
 {
 	char *get_the_line = NULL, *path;
-	int status;
 	char **command;
 	pid_t child_pro;
 
@@ -45,7 +44,7 @@ int main(int argc, char **argv, char **envp)
 		}
 		else
 		{
-			wait(&status);
+			wait(NULL);
 		}
 		free(path), free(command), free(get_the_line);
 	}
