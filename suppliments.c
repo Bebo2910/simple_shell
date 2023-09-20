@@ -7,14 +7,10 @@
  */
 char *print_prompt(void)
 {
-	char *prompt = ":) ", *get_the_line = NULL;
+	char *get_the_line = NULL;
 	size_t num;
 	ssize_t numexit;
 
-	if (isatty(0))
-	{
-		printf("%s", prompt);
-	}
 	numexit = getline(&get_the_line, &num, stdin);
 
 	if (numexit == -1)
@@ -24,6 +20,7 @@ char *print_prompt(void)
 	}
 	if (!get_the_line)
 	{
+		free(get_the_line);
 		return (NULL);
 	}
 
@@ -55,7 +52,7 @@ char **get_commands(char *line)
 		}
 		j++;
 	}
-	command = malloc(sizeof(char *) * (word_count) + 2);
+	command = malloc(sizeof(char *) * (word_count + 1));
 	if (!command)
 	{
 		return (NULL);

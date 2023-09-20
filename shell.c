@@ -27,6 +27,7 @@ int main(int argc, char **argv, char **envp)
 		child_pro = fork();
 		if (child_pro == -1)
 		{
+			free(get_the_line);
 			perror(argv[0]);
 			exit(EXIT_FAILURE);
 		}

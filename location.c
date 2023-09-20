@@ -30,6 +30,9 @@ char *get_loc(char *path, char *argument)
 		token = strtok(NULL, dels);
 	}
 
+	free(fileCopy);
+	free(file);
+	free(token);
 	return (NULL);
 }
 /**
