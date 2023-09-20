@@ -19,6 +19,7 @@ int check_commands(char **src, char **envp)
 
 	if (_strcmp(src[0], "exit") == 0)
 	{
+		free(src);
 		exit(0);
 	}
 	else if (_strcmp(src[0], "env") == 0)

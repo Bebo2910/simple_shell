@@ -9,18 +9,10 @@ char *print_prompt(void)
 {
 	char *get_the_line = NULL;
 	size_t num;
-	ssize_t numexit;
 
-	numexit = getline(&get_the_line, &num, stdin);
-
-	if (numexit == -1)
-	{
-		free(get_the_line);
-		exit(1);
-	}
+	getline(&get_the_line, &num, stdin);
 	if (!get_the_line)
 	{
-		free(get_the_line);
 		return (NULL);
 	}
 
@@ -52,19 +44,23 @@ char **get_commands(char *line)
 		}
 		j++;
 	}
-	command = malloc(sizeof(char *) * (word_count + 1));
-	if (!command)
+	command = malloc(sizeof(char *) * word_count);
+	if(!command)
 	{
 		return (NULL);
 	}
 	command[0] = strtok(line, dels);
+	if (command[0] == NULL)
+	{
+		free(command);
+		return (NULL);
+	}
 	while (command[i] != NULL)
 	{
 		i++;
 		command[i] = strtok(NULL, dels);
 	}
 	command[i] = NULL;
-
 	return (command);
 }
 /**
