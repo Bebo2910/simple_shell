@@ -1,6 +1,6 @@
 #include "shell.h"
 /**
- * *print_prompt - prints a prompt and reads a line 
+ * print_prompt - prints a prompt and reads a line
  * from standard input
  * Return: a pointer to the line read,
  * or NULL on error
@@ -15,7 +15,6 @@ char *print_prompt(void)
 	{
 		printf("%s", prompt);
 	}
-	
 	numexit = getline(&get_the_line, &num, stdin);
 
 	if (numexit == -1)
@@ -40,7 +39,7 @@ char *print_prompt(void)
 char **get_commands(char *line)
 {
 	int i = 0, word_count = 0, j = 0;
-	char *dels = " \n"; 
+	char *dels = " \n";
 	char **command;
 
 	if (!line)

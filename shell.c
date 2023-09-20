@@ -5,7 +5,7 @@
  * @argv: the array of arguments
  * @envp: the array of environment variables
  * Description:the function reads line from standard input
- * split it into words,check if valid , find path of command 
+ * split it into words,check if valid , find path of command
  * and executes it in child process and repeat it until user types exit
  * Return: 0 on success, or exit status of the child process if fails
  */
@@ -24,8 +24,8 @@ int main(int argc, char **argv, char **envp)
 		command = get_commands(get_the_line);
 		check_commands(command, envp);
 		path = get_path(command);
-		
 		child_pro = fork();
+
 		if (child_pro == -1)
 		{
 			perror(argv[0]);
@@ -48,5 +48,5 @@ int main(int argc, char **argv, char **envp)
 			wait(&status);
 		}
 	}
-	return 0;
+	return (0);
 }
