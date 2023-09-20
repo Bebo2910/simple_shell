@@ -85,7 +85,7 @@ int _puts(char *s)
 		i++;
 	}
 
-	_putchar('\n');
+	_putchar('\0');
 
 	return (0);
 }

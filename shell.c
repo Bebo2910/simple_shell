@@ -36,7 +36,10 @@ int main(int argc, char **argv, char **envp)
 		{
 			if (execve(path, command, envp) == -1)
 			{
-				perror(argv[0]);
+				_puts(argv[0]);
+				_puts(":");
+				_puts(" No such file or directory");
+				_putchar('\n');
 				exit(EXIT_FAILURE);
 			}
 		}
