@@ -46,7 +46,7 @@ int main(int argc, char **argv, char **envp)
 		{
 			wait(NULL);
 		}
-		free(command), free(get_the_line), free(path);
+		free(command), free(get_the_line);
 	}
 	return (0);
 }
