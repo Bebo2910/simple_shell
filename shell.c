@@ -38,7 +38,7 @@ int main(int argc, char **argv, char **envp)
 				_puts(":");
 				_puts(" No such file or directory");
 				_putchar('\n');
-				free(path), free(command);
+				free(command), free(path);
 				exit(EXIT_FAILURE);
 			}
 		}
@@ -46,7 +46,7 @@ int main(int argc, char **argv, char **envp)
 		{
 			wait(NULL);
 		}
-		free(path), free(command), free(get_the_line);
+		free(command), free(get_the_line);
 	}
 	return (0);
 }

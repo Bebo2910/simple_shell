@@ -31,7 +31,7 @@ char *print_prompt(void)
  */
 char **get_commands(char *line)
 {
-	int i = 0, word_count = 0, j = 0;
+	int i = 0;
 	char *dels = " \n";
 	char **command;
 
@@ -40,7 +40,7 @@ char **get_commands(char *line)
 		return (NULL);
 	}
 
-	command = malloc(sizeof(char *) * 1024);
+	command = malloc(sizeof(char *) * 11);
 	command[0] = strtok(line, dels);
 	if (command[0] == NULL)
 	{
