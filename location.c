@@ -15,6 +15,10 @@ char *get_loc(char *path, char *argument)
 	token = strtok(fileCopy, dels);
 
 	file = malloc(_strlen(token) + _strlen(argument) + 2);
+	if (!file)
+	{
+		return (NULL);
+	}
 	while (token != NULL)
 	{
 		_strcpy_c(file, token);
