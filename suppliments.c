@@ -71,7 +71,7 @@ char *get_path(char **command)
 		return (NULL);
 	}
 
-	if(command[0][0] == dels[0])
+	if (command[0][0] == dels[0])
 	{
 		path = command[0];
 		return (path);

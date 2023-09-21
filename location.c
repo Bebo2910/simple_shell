@@ -44,7 +44,7 @@ char *get_loc(char *path, char *argument)
 
 char *expo_loc(char *argument)
 {
-	char *path = "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"; 
+	char *path = "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin";
 
 	if (path)
 	{
