@@ -17,36 +17,28 @@ int main(int argc, char **argv, char **envp)
 	(void)argc;
 	(void)argv;
 	(void)envp;
-
 	signal(SIGINT, is_signal);
 	one_comm = NULL;
-
 	while (1)
 	{
 		comm_num++;
 		get_the_line(&one_comm, num_bytes, status);
 		commands = make_arr(one_comm, dels);
 		if (!(*commands))
-		{
 			status = 0;
-		}
 		else
 		{
-			if(builtin_check(commands))
+			if (builtin_check(commands))
 			{
 				if (builtin_expo(commands) == CODE)
-				{
 					free_all(commands, one_comm);
 					exit(status);
-				}
 			}
 			else
 			{
 				path = _path_finder(commands[0]);
 				if (path != NULL)
-				{
 					status = preprocessing(path, commands);
-				}
 				else
 					status = not_found(argv, commands, comm_num);
 			}

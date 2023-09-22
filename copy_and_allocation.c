@@ -57,7 +57,7 @@ int arr_copy(char **dest, char **src)
 		if (dest[env_ind] == NULL)
 		{
 			perror("_setenv() Error: new_environ malloc failed");
-			for(free_env_ind = 0; free_env_ind < env_ind; free_env_ind++)
+			for (free_env_ind = 0; free_env_ind < env_ind; free_env_ind++)
 			{
 				free(dest[free_env_ind]);
 			}

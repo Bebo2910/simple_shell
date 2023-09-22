@@ -1,7 +1,6 @@
 #include "shell.h"
 
 /**
- *
  * builtin_check - function for checking the commands
  * @arr: array
  * Return: 1 or 0
@@ -35,7 +34,7 @@ int builtin_check(char **arr)
 }
 
 /**
- * builting_expo - funciton to get builtins
+ * builtin_expo - funciton to get builtins
  * @arr: array
  * Return: functon or NULL
  *

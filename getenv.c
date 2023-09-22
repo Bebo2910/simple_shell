@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * getenva_builtin - function to getenv
+ * getenv_builtin - function to getenv
  * @n: name
  * Return: env
  *
@@ -23,7 +23,7 @@ char *getenv_builtin(const char *n)
 				perror("Error: env malloc failed");
 				return (NULL);
 			}
-			char_alloc(&env_cpy, strlen(__environ[env_ind]) + 1, "getenv() malloc error");
+			char_alloc(&env_cpy, strlen(__environ[env_ind]) + 1, "getenv: malloc fail");
 			strcpy(env_cpy, __environ[env_ind]);
 			strncpy(env, env_cpy += (strlen(n) + 1), env_len);
 			free(env_cpy -= (strlen(n) + 1));

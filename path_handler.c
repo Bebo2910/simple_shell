@@ -11,7 +11,8 @@
  */
 void path_creator(char **file, char **arr, int index, char *arg)
 {
-	char_alloc(file, (strlen(arr[index]) + strlen(arg) + 2), "Error: failed to make path");
+	char_alloc(file, (strlen(arr[index]) + strlen(arg) + 2),
+			"Error: failed to make path");
 	strcpy(*file, arr[index]);
 	strcat(*file, "/");
 	strcat(*file, arg);

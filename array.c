@@ -13,7 +13,7 @@ size_t num_tokens(char *arg, char *dels)
 	size_t count = 0;
 
 	token = strtok(arg, dels);
-	while(token != NULL)
+	while (token != NULL)
 	{
 		count++;
 		token = strtok(NULL, dels);
