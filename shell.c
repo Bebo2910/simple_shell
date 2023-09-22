@@ -31,8 +31,10 @@ int main(int argc, char **argv, char **envp)
 			if (builtin_check(commands))
 			{
 				if (builtin_expo(commands) == CODE)
+				{
 					free_all(commands, one_comm);
 					exit(status);
+				}
 			}
 			else
 			{
