@@ -9,7 +9,16 @@
 #include <unistd.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
-typedef struct builtin_func {
+
+/**
+  * struct builtin_func - structure to hold builtins
+  * @arg: argument name
+  * @func: function
+  *
+  *
+  */
+typedef struct builtin_func
+{
 	char *arg;
 	int (*func)(char **arr);
 } builtin_t;
