@@ -1,30 +1,58 @@
 #ifndef SHELL_H
 #define SHELL_H
 
-#include<stdio.h>
-#include<stdlib.h>
-#include<unistd.h>
-#include<string.h>
-#include<dirent.h>
-#include<sys/wait.h>
+#define CODE 1080
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <signal.h>
+#include <unistd.h>
+#include <sys/wait.h>
+#include <sys/stat.h>
+typedef struct builtin_func {
+	char *arg;
+	int (*func)(char **arr);
+} builtin_t;
 
-#define BUF_S 1024
 
-int check_commands(char **src, char **envp);
-char *print_prompt(void);
-char **get_commands(char *line);
-char *get_path(char **command);
+char **make_arr(char *arg, char *dels);
+size_t num_tokens(char *arg, char *dels);
 
-char *expo_loc(char *argument);
-char *get_loc(char *path, char *argument);
+void free_path(char **path, char **arr);
+void free_all(char **arr, char *n);
 
-char *_strcpy_c(char *input, char *src);
-char **list_of_items(char *str, char *dels);
-int _strcmp(char *s1, char *s2);
-char *_strtok(char *str, const char *dels);
-int _strlen(char *s);
+int counter(size_t num_comm);
 
-int _putchar(char c);
-int _puts(char *s);
+int exit_builtin(char **arr);
+int env_builtin(char **arr);
+
+char *getenv_builtin(const char *n);
+int print_env(void);
+
+void path_creator(char **file, char **arr, int index, char *arg);
+int valid_path(char *path);
+char *_path_finder(char *name);
+
+char **arr_alloc(char **arr, size_t size, char *message);
+char *char_alloc(char **s, size_t size, char *message);
+int arr_copy(char **dest, char **src);
+int name_env_found(const char *n);
+int strlen_env(void);
+
+ssize_t get_the_line(char **input, size_t num, int status);
+
+int preprocessing(char *command, char **arr);
+
+void is_signal(int sig);
+
+int not_found(char **argv, char **commands, size_t num_comm);
+
+int builtin_check(char **arr);
+int builtin_expo(char **arr);
+
+void prompt(void);
+
+void reverse_string(char *str);
+char *atoi_reverse(size_t num);
 
 #endif

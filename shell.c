@@ -1,52 +1,58 @@
 #include "shell.h"
-/**
- * main - a simple shell program
- * @argc: the number of arguments
- * @argv: the array of arguments
- * @envp: the array of environment variables
- * Description:the function reads line from standard input
- * split it into words,check if valid , find path of command
- * and executes it in child process and repeat it until user types exit
- * Return: 0 on success, or exit status of the child process if fails
- */
 
+/**
+ * main - shell function
+ * @argc: len of arguments
+ * @argv: arguments of the compile time
+ * @envp: environ variables
+ * Return: 0 on success
+ */
 int main(int argc, char **argv, char **envp)
 {
-	char *get_the_line = NULL, *path;
-	char **command;
-	pid_t child_pro;
+	char **commands;
+	char *one_comm, *dels = " \n", *path;
+	int status = 0;
+	size_t num_bytes = 0, comm_num = 0;
 
 	(void)argc;
+	(void)argv;
+	(void)envp;
+
+	signal(SIGINT, is_signal);
+	one_comm = NULL;
+
 	while (1)
 	{
-		get_the_line = print_prompt();
-		command = get_commands(get_the_line);
-		check_commands(command, envp);
-		path = get_path(command);
-		child_pro = fork();
-		if (child_pro == -1)
+		comm_num++;
+		get_the_line(&one_comm, num_bytes, status);
+		commands = make_arr(one_comm, dels);
+		if (!(*commands))
 		{
-			free(get_the_line);
-			perror(argv[0]);
-			exit(EXIT_FAILURE);
-		}
-		if (child_pro == 0)
-		{
-			if (execve(path, command, envp) == -1)
-			{
-				_puts(argv[0]);
-				_puts(":");
-				_puts(" No such file or directory");
-				_putchar('\n');
-				free(command), free(path);
-				exit(EXIT_FAILURE);
-			}
+			status = 0;
 		}
 		else
 		{
-			wait(NULL);
+			if(builtin_check(commands))
+			{
+				if (builtin_expo(commands) == CODE)
+				{
+					free_all(commands, one_comm);
+					exit(status);
+				}
+			}
+			else
+			{
+				path = _path_finder(commands[0]);
+				if (path != NULL)
+				{
+					status = preprocessing(path, commands);
+				}
+				else
+					status = not_found(argv, commands, comm_num);
+			}
 		}
-		free(command), free(get_the_line);
+		free_all(commands, one_comm);
+		one_comm = NULL;
 	}
 	return (0);
 }
