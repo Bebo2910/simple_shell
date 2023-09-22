@@ -50,7 +50,7 @@ int cd_builtin(char **arr)
 {
 	char cwd[1024];
 	char *home = getenv_builtin("HOME");
-	
+
 	if (arr[1] == NULL)
 	{
 		if (chdir(home) == -1)
@@ -71,5 +71,5 @@ int cd_builtin(char **arr)
 		}
 	}
 	free(home);
-	return 0;
+	return (0);
 }
