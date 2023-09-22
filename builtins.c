@@ -39,6 +39,13 @@ int exit_builtin(char **arr)
 	}
 }
 
+/**
+ * cd_builtin - change directory
+ * @arr: array
+ * Return: 0 on success
+ *
+ */
+
 int cd_builtin(char **arr)
 {
 	char cwd[1024];
