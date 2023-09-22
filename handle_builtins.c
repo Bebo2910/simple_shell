@@ -15,6 +15,7 @@ int builtin_check(char **arr)
 	builtin_t functions[] = {
 		{"env", env_builtin},
 		{"exit", exit_builtin},
+		{"cd", cd_builtin},
 		{NULL, NULL}
 	};
 
@@ -47,6 +48,7 @@ int builtin_expo(char **arr)
 	builtin_t functions[] = {
 		{"env", env_builtin},
 		{"exit", exit_builtin},
+		{"cd", cd_builtin},
 		{NULL, NULL}
 	};
 

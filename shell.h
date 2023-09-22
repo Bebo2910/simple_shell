@@ -34,6 +34,7 @@ int counter(size_t num_comm);
 
 int exit_builtin(char **arr);
 int env_builtin(char **arr);
+int cd_builtin(char **arr);
 
 char *getenv_builtin(const char *n);
 int print_env(void);

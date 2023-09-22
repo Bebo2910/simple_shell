@@ -38,3 +38,31 @@ int exit_builtin(char **arr)
 		return (CODE);
 	}
 }
+
+int cd_builtin(char **arr)
+{
+	char cwd[1024];
+	char *home = getenv_builtin("HOME");
+	
+	if (arr[1] == NULL)
+	{
+		if (chdir(home) == -1)
+			perror("cd: ");
+		if (getcwd(cwd, sizeof(cwd)) == NULL)
+			perror("getcwd: ");
+	}
+	else
+	{
+		if (chdir(arr[1]) == -1)
+		{
+			perror("cd: ");
+		}
+		else
+		{
+			if (getcwd(cwd, sizeof(cwd)) == NULL)
+				perror("getcwd: ");
+		}
+	}
+	free(home);
+	return 0;
+}
