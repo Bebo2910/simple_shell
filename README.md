@@ -25,5 +25,5 @@ Feel free to modify and extend this project to suit your specific needs. You can
 This project is open-source and available under an open-source license.
 
 ### Authors
-Abanoub Samy Farhan
-Marian Demins
+   - Abanoub Samy Farhan
+   - Marian Demins
